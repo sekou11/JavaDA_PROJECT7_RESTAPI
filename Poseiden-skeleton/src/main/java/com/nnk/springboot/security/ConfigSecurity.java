@@ -30,26 +30,34 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 		authProvider.setUserDetailsService(userDetailsService());
-		authProvider.setPasswordEncoder(passwordEncoder ());	
+		authProvider.setPasswordEncoder(passwordEncoder());
 		return authProvider;
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(authenticationProvider ());
+		auth.authenticationProvider(authenticationProvider());
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().anyRequest().permitAll()
-		.and().formLogin()
-		.usernameParameter("username")
-		.defaultSuccessUrl("/").permitAll().and().logout().logoutSuccessUrl("/").permitAll();
-		
+		http.authorizeRequests().antMatchers("/","/user/**", "/css/**", "/webjars/**", "/js/**").permitAll()
+		                        .anyRequest().authenticated()
+				                .and()
+				                .formLogin()
+				                 .usernameParameter("username").permitAll()
+				                 .and()
+				                 
+                                  .logout().permitAll();
+
+		                          http.formLogin().defaultSuccessUrl("/admin/home", true);
+
+		                           http.logout().logoutUrl("/app-logout").logoutSuccessUrl("/login");
 	}
 
 }
