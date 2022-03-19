@@ -8,13 +8,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "trade")
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Trade {
-    // TODO: Map columns in data table TRADE with corresponding java fields
+
+	// TODO: Map columns in data table TRADE with corresponding java fields
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer TradeId;
+	private Integer tradeId;
 	private String  account;
 	private String type;
 	private Double buyQuantity;
@@ -38,58 +46,19 @@ public class Trade {
 	private String sourceListId; 
 	private String side;
 	
-	public Trade() {
-	
-	}
-
-	public Trade(Integer tradeId, String account, String type, Double buyQuantity, Double sellQuantity, Double buyPrice,
-			Double sellPrice, Date tradeDate, String security, String status, String trader, String benchmark,
-			String book, String creationName, Date creationDate, String revisionName, Date revisionDate,
-			String dealName, String dealType, String sourceListId, String side) {
-		super();
-		TradeId = tradeId;
-		this.account = account;
-		this.type = type;
-		this.buyQuantity = buyQuantity;
-		this.sellQuantity = sellQuantity;
-		this.buyPrice = buyPrice;
-		this.sellPrice = sellPrice;
-		this.tradeDate = tradeDate;
-		this.security = security;
-		this.status = status;
-		this.trader = trader;
-		this.benchmark = benchmark;
-		this.book = book;
-		this.creationName = creationName;
-		this.creationDate = creationDate;
-		this.revisionName = revisionName;
-		this.revisionDate = revisionDate;
-		this.dealName = dealName;
-		this.dealType = dealType;
-		this.sourceListId = sourceListId;
-		this.side = side;
-	}
-
 	public Trade(String account, String type) {
+		super();
 		this.account = account;
 		this.type = type;
 	}
+	
+	
+	
+	
+	
 
-	public Integer getTradeId() {
-		return TradeId;
-	}
+	
 
-	public void setTradeId(Integer tradeId) {
-		TradeId = tradeId;
-	}
-
-	public String getAccount() {
-		return account;
-	}
-
-	public void setAccount(String account) {
-		this.account = account;
-	}
 	
 	
 	
