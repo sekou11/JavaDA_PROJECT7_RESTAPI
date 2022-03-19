@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,52 +23,61 @@ public class RatingController {
 	@Autowired
 	private RatingService ratingService;
 	// TODO: Inject Rating service
+	private static final Logger LOGGER = LogManager.getLogger(RatingController.class);
 
 	@RequestMapping("/rating/list")
 	public String home(Model model) {
 		// TODO: find all Rating, add to model
-		List<Rating>ratings = ratingService.findAll();
+		List<Rating> ratings = ratingService.findAll();
 		model.addAttribute("ratings", ratings);
+		LOGGER.info("All Rating List");
 		return "rating/list";
 	}
 
 	@GetMapping("/rating/add")
 	public String addRatingForm(Rating rating) {
+		LOGGER.info("Add a Rating ");
 		return "rating/add";
 	}
-
 	@PostMapping("/rating/validate")
 	public String validate(@Valid Rating rating, BindingResult result, Model model) {
 		// TODO: check data valid and save to db, after saving return Rating list
-		if (! result.hasErrors()) {
+		if (!result.hasErrors()) {
 			ratingService.save(rating);
 			model.addAttribute("rating", ratingService.findAll());
+			LOGGER.info("Validate and Save Rating ");
 			return "redirect:/rating/list";
 		}
 		return "rating/add";
 	}
-
+	
 	@GetMapping("/rating/update/{id}")
 	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
 		// TODO: get Rating by Id and to model then show to the form
-		 Rating rating = ratingService.findbyId(id)
-				 .orElseThrow(()->new IllegalArgumentException("Invalid Rating id"+id));
-		 model.addAttribute("rating", rating);
+		Rating rating = ratingService.findbyId(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid Rating id" + id));
+		model.addAttribute("rating", rating);
+		LOGGER.info("Update a Rating By Id");
 		return "rating/update";
 	}
+
+
+
+	
 
 	@PostMapping("/rating/update/{id}")
 	public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating, BindingResult result,
 			Model model) {
 		// TODO: check required fields, if valid call service to update Rating and
 		// return Rating list
-		
+
 		if (result.hasErrors()) {
 			return "rating/update";
 		}
 		rating.setId(id);
 		ratingService.save(rating);
 		model.addAttribute("rating", ratingService.findAll());
+		LOGGER.info("Update and Save Rating ");
 		return "redirect:/rating/list";
 	}
 
@@ -74,9 +85,10 @@ public class RatingController {
 	public String deleteRating(@PathVariable("id") Integer id, Model model) {
 		// TODO: Find Rating by Id and delete the Rating, return to Rating list
 		Rating rating = ratingService.findbyId(id)
-				 .orElseThrow(()->new IllegalArgumentException("Invalid Rating id"+id));
+				.orElseThrow(() -> new IllegalArgumentException("Invalid Rating id" + id));
 		ratingService.delete(rating);
 		model.addAttribute("rating", ratingService.findAll());
+		LOGGER.info("Delete a Rating ");
 		return "redirect:/rating/list";
 	}
 }

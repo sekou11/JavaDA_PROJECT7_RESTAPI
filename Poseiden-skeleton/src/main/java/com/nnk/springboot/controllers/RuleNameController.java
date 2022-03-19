@@ -3,6 +3,8 @@ package com.nnk.springboot.controllers;
 import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.service.RuleNameService;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ public class RuleNameController {
     // TODO: Inject RuleName service
 	@Autowired
 	private RuleNameService ruleNameService;
+	
+	private static final Logger LOGGER = LogManager.getLogger(TradeController.class);
 
     @RequestMapping("/ruleName/list")
     public String home(Model model)
@@ -28,11 +32,13 @@ public class RuleNameController {
     	List<RuleName> ruleName =ruleNameService.findAll();
         // TODO: find all RuleName, add to model
     	model.addAttribute("ruleName", ruleName);
+    	LOGGER.info("All RuleName");
         return "ruleName/list";
     }
 
     @GetMapping("/ruleName/add")
     public String addRuleForm(RuleName ruleName) {
+    	LOGGER.info("Add a trade");
         return "ruleName/add";
     }
 
@@ -42,6 +48,7 @@ public class RuleNameController {
     	if (!result.hasErrors()) {
 			ruleNameService.save(ruleName);
 			model.addAttribute("ruleName", ruleNameService.findAll());
+			LOGGER.info("Validate and Save a trade");
 			return "redirect:/ruleName/list";
 		}
         return "ruleName/add";
@@ -53,6 +60,7 @@ public class RuleNameController {
     	RuleName ruleName = ruleNameService.findById(id)
     			.orElseThrow(()->new IllegalArgumentException("Invalid RuleName id"+id));
     	 model.addAttribute("ruleName", ruleName);
+    	 LOGGER.info("Update a trade By id");
         return "ruleName/update";
     }
 
@@ -66,6 +74,7 @@ public class RuleNameController {
     	  ruleName.setId(id);
     	  ruleNameService.save(ruleName);
     	  model.addAttribute("ruleName", ruleName);
+    	  LOGGER.info("Update and Save a trade ");
         return "redirect:/ruleName/list";
     }
 
@@ -77,6 +86,7 @@ public class RuleNameController {
     			.orElseThrow(()->new IllegalArgumentException("Invalid RuleName id"+id));
     	   ruleNameService.delete(ruleName);
     	   model.addAttribute("ruleName", ruleName);
+    	   LOGGER.info("Delete a trade .......");
         return "redirect:/ruleName/list";
     }
 }

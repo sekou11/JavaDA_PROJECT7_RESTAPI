@@ -3,6 +3,8 @@ package com.nnk.springboot.service.Impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,27 +17,29 @@ import com.nnk.springboot.service.BidListService;
 public class BidListServiceImpl implements BidListService {
 	@Autowired
 	private BidListRepository bidListRepository;  
-
+	private static final Logger LOGGER = LogManager.getLogger(BidListServiceImpl.class);
 	@Override
 	public List<BidList> findAll() {
-		// TODO Auto-generated method stub
+		 LOGGER.debug("All BidList called");
 		return bidListRepository.findAll();
 	}
 
 	@Override
-	public void save(BidList bid) {
-		bidListRepository.save(bid);
+	public void save(BidList bidList) {
+		LOGGER.debug("A bildList save" +bidList);
+		bidListRepository.save(bidList);
 		
 	}
 
 	@Override
 	public Optional<BidList> findbyId(Integer id) {
-		// TODO Auto-generated method stub
+		LOGGER.debug("A bildList save" +id);
 		return bidListRepository.findById(id);
 	}
 
 	@Override
 	public void delete(BidList bidList) {
+		 LOGGER.debug("delete a bidList By id" + bidList);
 		bidListRepository.delete(bidList);		
 	}
 

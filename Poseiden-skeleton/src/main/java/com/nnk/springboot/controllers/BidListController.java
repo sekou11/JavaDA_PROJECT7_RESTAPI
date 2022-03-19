@@ -1,12 +1,8 @@
 package com.nnk.springboot.controllers;
 
-import com.nnk.springboot.domain.BidList;
-import com.nnk.springboot.domain.User;
-import com.nnk.springboot.repositories.UserRepository;
-import com.nnk.springboot.service.Impl.BidListServiceImpl;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,21 +11,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.nnk.springboot.domain.BidList;
+import com.nnk.springboot.service.Impl.BidListServiceImpl;
 
 @Controller
 public class BidListController {
 	@Autowired
 	private BidListServiceImpl bidListService;
+	
+
+private static final Logger LOGGER = LogManager.getLogger(BidListController.class);
+
 
 	@RequestMapping("/bidList/list")
 	public String home(Model model) {
 		model.addAttribute("bidList", bidListService.findAll());
+		LOGGER.info("All a BidList");
 		return "bidList/list";
 	}
 
 	@GetMapping("/bidList/add")
 	public String addBidList(BidList bidList) {
+		LOGGER.info("Add a BidList");
 		return "bidList/add";
 	}
 
@@ -39,6 +45,7 @@ public class BidListController {
 
 			bidListService.save(bidList);
 			model.addAttribute("users", bidListService.findAll());
+			LOGGER.info("valide A save a BidList");
 			return "redirect:/bidList/list";
 		}
 		return "bidList/add";
@@ -50,6 +57,7 @@ public class BidListController {
 				.orElseThrow(() -> new IllegalArgumentException("Invalid bidList Id:" + id));
 
 		model.addAttribute("bidList", bidList);
+		LOGGER.info(" BidList update By id");
 		return "bidList/update";
 	}
 
@@ -62,6 +70,7 @@ public class BidListController {
 		bidList.setBidListId(id);
 		bidListService.save(bidList);
 		model.addAttribute("bidList", bidListService.findAll());
+		LOGGER.info(" BidList updated and save");
 		return "redirect:/bidList/list";
 	}
 	
@@ -71,6 +80,7 @@ public class BidListController {
 	       BidList bidList = bidListService.findbyId(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 	        bidListService.delete(bidList);
 	        model.addAttribute("users", bidListService.findAll());
+	        LOGGER.info("delete  a BidList");
 	        return "redirect:/bidList/list";
 	    }
 

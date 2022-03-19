@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.service.TradeService;
 
@@ -21,17 +24,21 @@ public class TradeController {
 	// TODO: Inject Trade service
 	@Autowired
 	private TradeService tradeService;
+	
+	private static final Logger LOGGER = LogManager.getLogger(TradeController.class);
 
 	@RequestMapping("/trade/list")
 	public String home(Model model) {
 		// TODO: find all Trade, add to model
 		List<Trade> trades = tradeService.findAll();
 		model.addAttribute("trades", trades);
+		LOGGER.info("All trades");
 		return "trade/list";
 	}
 
 	@GetMapping("/trade/add")
 	public String addUser(Trade trade) {
+		LOGGER.info("Add a Trade");
 		return "trade/add";
 	}
 
@@ -41,6 +48,7 @@ public class TradeController {
 		if (!result.hasErrors()) {
 			tradeService.save(trade);
 			model.addAttribute("trade", tradeService.findAll());
+			LOGGER.info("validate a Trade");
 			return "redirect:/trade/list";
 		}
 		return "trade/add";
@@ -52,6 +60,7 @@ public class TradeController {
 		Trade trade = tradeService.findbyId(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Trade Id " + id));
 		model.addAttribute("trade", trade);
+		LOGGER.info("updated a Trade by id"+ id);
 		return "trade/update";
 	}
 
@@ -65,6 +74,7 @@ public class TradeController {
 		trade.setTradeId(id);
 		tradeService.save(trade);
 		model.addAttribute("rating", tradeService.findAll());
+		LOGGER.info("updated and saved Trade ");
 		return "redirect:/trade/list";
 
 		
@@ -77,6 +87,7 @@ public class TradeController {
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Trade Id " + id));
 		tradeService.delete(trade);
 		model.addAttribute("trade", tradeService.findAll());
+		LOGGER.info(" Trade delete");
 		return "redirect:/trade/list";
 	}
 }
