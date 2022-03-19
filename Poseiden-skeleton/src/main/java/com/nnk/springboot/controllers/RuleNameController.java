@@ -25,9 +25,9 @@ public class RuleNameController {
     @RequestMapping("/ruleName/list")
     public String home(Model model)
     {
-    	List<RuleName> ruleNameList =ruleNameService.findAll();
+    	List<RuleName> ruleName =ruleNameService.findAll();
         // TODO: find all RuleName, add to model
-    	model.addAttribute("ruleName", ruleNameList);
+    	model.addAttribute("ruleName", ruleName);
         return "ruleName/list";
     }
 

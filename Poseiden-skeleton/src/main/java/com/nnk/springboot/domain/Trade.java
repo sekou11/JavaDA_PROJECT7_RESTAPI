@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +23,18 @@ import lombok.Setter;
 public class Trade {
 
 	// TODO: Map columns in data table TRADE with corresponding java fields
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private Integer tradeId;
+	
+	@NotBlank(message ="account is mandatory" )
 	private String  account;
+	
+	@NotBlank(message ="type is mandatory" )
 	private String type;
+	
+	@NotNull
 	private Double buyQuantity;
 	private Double sellQuantity;
 	private Double buyPrice;

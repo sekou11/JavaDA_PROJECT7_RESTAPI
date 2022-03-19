@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "rulename")
@@ -12,12 +14,25 @@ public class RuleName {
 	// TODO: Map columns in data table RULENAME with corresponding java fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private Integer id;
+	
+	@NotBlank(message ="name is mandatory" )
 	private String name;
+	
+	@NotBlank(message ="description is mandatory" )
 	private String description;
+	
+	@NotBlank(message ="json is mandatory" )
 	private String json;
+	
+	@NotBlank(message ="template is mandatory" )
 	private String template;
+	
+	@NotBlank(message ="sql Str is mandatory" )
 	private String sqlStr;
+	
+	@NotBlank(message ="sql Part is mandatory" )
 	private String sqlPart;
 
 	public RuleName() {

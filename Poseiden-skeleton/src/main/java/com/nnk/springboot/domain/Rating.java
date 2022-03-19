@@ -11,10 +11,19 @@ public class Rating {
 	// TODO: Map columns in data table RATING with corresponding java fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
 	private Integer id;
+	
+	@NotBlank(message ="moodysRating is mandatory" )
 	private String moodysRating;
+	
+	@NotBlank(message ="sandPRating is mandatory" )
 	private String sandPRating;
+	
+	@NotBlank(message ="fitchRating is mandatory" )
 	private String fitchRating;
+	
+	@NotNull
 	private Integer orderNumber;
 
 	public Rating() {
