@@ -6,19 +6,21 @@ import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
-import com.nnk.springboot.service.BidListService;
 import com.nnk.springboot.service.UserService;
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService   {
 	@Autowired
 	private UserRepository userRepository;  
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl .class);
 
 	@Override
@@ -30,6 +32,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(User user) {
 		LOGGER.debug("Save a User" +user);
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 		
 	}
@@ -45,5 +48,10 @@ public class UserServiceImpl implements UserService {
 		LOGGER.debug("Delete a User" +user);
 		userRepository.delete(user);		
 	}
+
+	
+
+	
+
 
 }

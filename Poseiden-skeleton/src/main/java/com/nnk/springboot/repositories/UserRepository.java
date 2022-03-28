@@ -7,7 +7,9 @@ import com.nnk.springboot.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-   // @Query("SELECT u FROM USER u WHERE u.username=?1")
+   
 	public User findByUsername(String username);
+
+	
 
 }
