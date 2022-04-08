@@ -13,12 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("app")
 public class LoginController {
-	private static final Logger LOGGER = LogManager.getLogger(CurveController.class);
+	private static final Logger LOGGER = LogManager.getLogger(LoginController.class);
     @Autowired
     private UserRepository userRepository;
 
     @GetMapping("login")
     public ModelAndView login() {
+    	LOGGER.info("Entrer Login method....");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         return mav;
@@ -35,6 +36,7 @@ public class LoginController {
 
     @GetMapping("error")
     public ModelAndView error() {
+    	LOGGER.info("Entrer Error method....");
         ModelAndView mav = new ModelAndView();
         String errorMessage= "You are not authorized for the requested data.";
         mav.addObject("errorMsg", errorMessage);

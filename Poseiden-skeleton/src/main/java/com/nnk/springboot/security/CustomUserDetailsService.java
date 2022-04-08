@@ -1,7 +1,6 @@
-package com.nnk.springboot.security.OAuth;
+package com.nnk.springboot.security;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,20 +13,22 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 	@Autowired
     private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		 User user = userRepository.findByUsername(username);
-	        if (user == null) throw new UsernameNotFoundException(username);
+		 
+	        if (user == null) {
+	        	throw new UsernameNotFoundException("User not found");
+	        }
 
-	        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-	        grantedAuthorities.add(new SimpleGrantedAuthority(user.getRoles()));
-
-	        return new org.springframework.security.core.userdetails.User(user.getUsername(),
-	        		user.getPassword(), grantedAuthorities);
+	        GrantedAuthority authority = new SimpleGrantedAuthority(user.getRoles());
+	        UserDetails userDetails = (UserDetails) new org.springframework.security.core.userdetails.User
+	        		(user.getUsername(), user.getPassword(), Arrays.asList(authority));
+	        return userDetails;
 
 }
 }
