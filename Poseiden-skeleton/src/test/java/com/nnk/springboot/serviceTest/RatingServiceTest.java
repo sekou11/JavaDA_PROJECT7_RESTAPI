@@ -1,0 +1,56 @@
+package com.nnk.springboot.serviceTest;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.nnk.springboot.domain.Rating;
+import com.nnk.springboot.repositories.RatingRepository;
+import com.nnk.springboot.service.RatingService;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class RatingServiceTest {
+	@Autowired
+	private RatingRepository ratingRepository;
+	@Autowired
+	private RatingService ratingService;
+
+	@WithMockUser(value = "test")
+	@Test
+	public void ratingServiceTest() {
+		Rating rating = new Rating("Moodys Rating", "Sand PRating", "Fitch Rating", 10);
+
+		// Save
+		ratingService.save(rating);
+		Assert.assertNotNull(rating.getId());
+		Assert.assertTrue(rating.getOrderNumber() == 10);
+
+		// Update
+		Integer id = rating.getId();
+		ratingService.findbyId(id);
+		rating.setOrderNumber(20);
+		ratingService.updateRating(id, rating);
+		Assert.assertTrue(rating.getOrderNumber() == 20);
+
+		// Find
+		List<Rating> listResult = ratingService.findAll();
+		Assert.assertTrue(listResult.size() > 0);
+
+		// Delete
+
+		Integer id2 = rating.getId();
+		ratingService.delete(rating);
+		Optional<Rating> ratingList = ratingRepository.findById(id);
+		Assert.assertFalse(ratingList.isPresent());
+
+	}
+}

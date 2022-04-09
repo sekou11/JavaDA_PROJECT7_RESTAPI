@@ -14,5 +14,9 @@ public interface BidListService {
 	public Optional<BidList> findbyId(Integer id);
 
 	public void delete(BidList bidList);
+	
+	public BidList updateBidList(Integer id,BidList bid);
+	
+	
 
 }

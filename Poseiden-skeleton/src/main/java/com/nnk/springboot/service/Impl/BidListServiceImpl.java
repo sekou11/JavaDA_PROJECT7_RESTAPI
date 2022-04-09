@@ -33,8 +33,16 @@ public class BidListServiceImpl implements BidListService {
 
 	@Override
 	public Optional<BidList> findbyId(Integer id) {
-		LOGGER.debug("A bildList save" +id);
+		LOGGER.debug("A bildList found" +id);
 		return bidListRepository.findById(id);
+	}
+	
+	@Override
+	public BidList updateBidList(Integer id, BidList bid) {
+		LOGGER.debug("Update  a BidList By id" + id);
+		bid.setBidListId(id);
+		bidListRepository.save(bid);
+		return bid;
 	}
 
 	@Override
@@ -42,5 +50,9 @@ public class BidListServiceImpl implements BidListService {
 		 LOGGER.debug("delete a bidList By id" + bidList);
 		bidListRepository.delete(bidList);		
 	}
+	
+
+
+	
 
 }

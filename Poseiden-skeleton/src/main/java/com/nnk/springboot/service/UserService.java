@@ -3,6 +3,7 @@ package com.nnk.springboot.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.User;
 
 public interface UserService {
@@ -14,5 +15,6 @@ public interface UserService {
 	public Optional<User> findbyId(Integer id);
 
 	public void delete(User User);
+	public User updateUser(Integer id,User user);
 
 }

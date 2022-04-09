@@ -15,4 +15,6 @@ public interface TradeService {
 
 	public void delete(Trade tradeList);
 
+	public Trade updateTrade(Integer id, Trade trade);
+
 }

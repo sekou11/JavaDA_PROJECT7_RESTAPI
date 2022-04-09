@@ -14,6 +14,8 @@ public interface RuleNameService {
 	public Optional<RuleName> findById(Integer id);
 
 	public void delete(RuleName ruleName);
+
+	public RuleName updateRuleName(Integer id, RuleName rule);
 	
 	
 

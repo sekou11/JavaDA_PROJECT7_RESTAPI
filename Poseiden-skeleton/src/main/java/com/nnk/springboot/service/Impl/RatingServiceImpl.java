@@ -43,4 +43,13 @@ public class RatingServiceImpl implements RatingService {
 		ratingRepository.delete(rating);		
 	}
 
+	@Override
+	public Rating updateRating(Integer id, Rating rating) {
+		LOGGER.debug("Update  a Rating By id" + id);
+		rating.setId(id);;
+		ratingRepository.save(rating);
+		return rating;
+		
+	}
+
 }

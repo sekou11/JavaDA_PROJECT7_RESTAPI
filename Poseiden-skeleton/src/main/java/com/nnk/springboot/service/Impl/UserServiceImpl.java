@@ -49,6 +49,14 @@ public class UserServiceImpl implements UserService   {
 		userRepository.delete(user);		
 	}
 
+	@Override
+	public User updateUser(Integer id, User user) {
+		LOGGER.debug("Update a User" +user);
+		user.setId(id);
+		userRepository.save(user);
+		return user;
+	}
+
 	
 
 	
