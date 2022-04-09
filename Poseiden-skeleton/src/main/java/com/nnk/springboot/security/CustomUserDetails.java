@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.nnk.springboot.domain.User;
 
 @Service
-
 public class CustomUserDetails implements UserDetails {
 	private User user;
 
@@ -27,43 +26,43 @@ public class CustomUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-	GrantedAuthority authority = new SimpleGrantedAuthority(user.getRoles());
+		// TODO Auto-generated method stub
+		GrantedAuthority authority = new SimpleGrantedAuthority(user.getRoles());
+		
 		return Arrays.asList(authority);
 	}
 
 	@Override
 	public String getPassword() {
-	
 		return user.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		
-	  return user.getUsername();
+		return user.getUsername();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		
+
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		
+
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		
-		return false;
+
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-	
+
 		return true;
 	}
 

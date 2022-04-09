@@ -1,4 +1,4 @@
-package com.nnk.springboot.domain;
+package com.nnk.springboot.DaoTest;
 
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.repositories.RatingRepository;
@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class RatingTests {
 	@Autowired
 	private RatingRepository ratingRepository;
 
+	@WithMockUser(value = "test")
 	@Test
 	public void ratingTest() {
 		Rating rating = new Rating("Moodys Rating", "Sand PRating", "Fitch Rating", 10);
@@ -38,9 +40,11 @@ public class RatingTests {
 		Assert.assertTrue(listResult.size() > 0);
 
 		// Delete
+
 		Integer id = rating.getId();
 		ratingRepository.delete(rating);
 		Optional<Rating> ratingList = ratingRepository.findById(id);
 		Assert.assertFalse(ratingList.isPresent());
+
 	}
 }

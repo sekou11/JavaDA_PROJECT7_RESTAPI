@@ -18,14 +18,14 @@
 5. Run sql script to create table doc/data.sql
 
 ## Implement a feature:
-1. Create mapping domain class and place in package com.nnk.springboot.domain.domain
-2. Create repository class and place in package com.nnk.springboot.domain.repositories
-3. Create controller class and place in package com.nnk.springboot.domain.controllers
+1. Create mapping domain class and place in package com.nnk.springboot.daoTest.domain
+2. Create repository class and place in package com.nnk.springboot.daoTest.repositories
+3. Create controller class and place in package com.nnk.springboot.daoTest.controllers
 4. Create view files and place in src/main/resource/templates
 
 ## Write unit test
-1. Create unit test and place in package com.nnk.springboot.domain in folder test > java
+1. Create unit test and place in package com.nnk.springboot.daoTest in folder test > java
 
 ## Security
-1. Create user service to load user from  database and place in package com.nnk.springboot.domain.services
-2. Add configuration class and place in package com.nnk.springboot.domain.config
+1. Create user service to load user from  database and place in package com.nnk.springboot.daoTest.services
+2. Add configuration class and place in package com.nnk.springboot.daoTest.config

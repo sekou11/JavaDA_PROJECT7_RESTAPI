@@ -62,6 +62,19 @@ public class Trade {
 		this.type = type;
 	}
 	
+
+	
+
+
+	public Trade(@NotBlank(message = "account is mandatory") String account,
+			@NotBlank(message = "type is mandatory") String type,
+			@NotNull Double buyQuantity) {
+		super();
+		this.account = account;
+		this.type = type;
+		this.buyQuantity = buyQuantity;
+	}
+	
 	
 	
 	
