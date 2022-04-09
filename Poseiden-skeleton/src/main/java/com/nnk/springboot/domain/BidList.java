@@ -25,7 +25,7 @@ public class BidList {
 	// TODO: Map columns in data table BIDLIST with corresponding java fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+
 	private Integer bidListId;
 
 	@NotBlank(message = "Account is mandatory")

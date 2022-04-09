@@ -25,7 +25,7 @@ public class Trade {
 	// TODO: Map columns in data table TRADE with corresponding java fields
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
+	//@NotNull
 	private Integer tradeId;
 	
 	@NotBlank(message ="account is mandatory" )

@@ -11,7 +11,7 @@ public class Rating {
 	// TODO: Map columns in data table RATING with corresponding java fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+   // @NotNull
 	private Integer id;
 	
 	@NotBlank(message ="moodysRating is mandatory" )

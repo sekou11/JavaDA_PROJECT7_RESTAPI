@@ -14,7 +14,7 @@ public class RuleName {
 	// TODO: Map columns in data table RULENAME with corresponding java fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
+	//@NotNull
 	private Integer id;
 	
 	@NotBlank(message ="name is mandatory" )
