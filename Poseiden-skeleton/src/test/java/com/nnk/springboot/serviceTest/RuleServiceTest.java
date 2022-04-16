@@ -1,5 +1,8 @@
 package com.nnk.springboot.serviceTest;
 
+import static org.mockito.Mockito.doReturn;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +45,7 @@ public class RuleServiceTest {
 		rule = ruleNameService.updateRuleName(id, rule);
 		Assert.assertTrue(rule.getName().equals("Rule Name Update"));
 
+		
 		// Find
 		List<RuleName> listResult = ruleNameService.findAll();
 		Assert.assertTrue(listResult.size() > 0);

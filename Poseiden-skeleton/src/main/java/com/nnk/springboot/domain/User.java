@@ -14,6 +14,7 @@ import com.nnk.springboot.domain.Validation.ValidPassword;
 
 @Entity
 @Table(name = "users")
+
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,22 +29,18 @@ public class User {
 
 	@NotBlank(message = "FullName is mandatory")
 	private String fullname;
-	
+
 	private String roles;
-	
-	@Enumerated(EnumType.STRING)
-	private Provider provider;
 
-
+//	@Enumerated(EnumType.STRING)
+//	private Provider provider;
 
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-
 	
 
-	public User(Integer id, @NotBlank(message = "Username is mandatory") String username
-			, String password,
+	public User(Integer id, @NotBlank(message = "Username is mandatory") String username, String password,
 		@NotBlank(message = "FullName is mandatory") String fullname, String roles) {
 	super();
 	this.id = id;
@@ -52,23 +49,26 @@ public class User {
 	this.fullname = fullname;
 	this.roles = roles;
 }
-
-
-
 	
 
 
-
-
-
-
-	public User(@NotBlank(message = "Username is mandatory") String username,
+	public User(@NotBlank(message = "Username is mandatory") String username, String password,
 			@NotBlank(message = "FullName is mandatory") String fullname) {
 		super();
 		this.username = username;
+		this.password = password;
 		this.fullname = fullname;
 	}
 
+
+	public User(@NotBlank(message = "Username is mandatory") String username, String password,
+			@NotBlank(message = "FullName is mandatory") String fullname, String roles) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.roles = roles;
+	}
 
 
 	public Integer getId() {
@@ -103,31 +103,15 @@ public class User {
 		this.fullname = fullname;
 	}
 
-
-
 	public String getRoles() {
 		return roles;
 	}
-
-
 
 	public void setRoles(String roles) {
 		this.roles = roles;
 	}
 
-
-
-	public Provider getProvider() {
-		return provider;
-	}
-
-
-
-	public void setProvider(Provider provider) {
-		this.provider = provider;
-	}
-
-
-
 	
+	
+
 }

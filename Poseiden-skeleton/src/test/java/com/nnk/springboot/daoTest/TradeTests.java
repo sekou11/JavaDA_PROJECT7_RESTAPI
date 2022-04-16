@@ -1,5 +1,6 @@
 package com.nnk.springboot.DaoTest;
 
+import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.repositories.TradeRepository;
 import org.junit.Assert;
@@ -18,9 +19,8 @@ import java.util.Optional;
 @SpringBootTest
 public class TradeTests {
 
-	@Autowired  
+	@Autowired
 	private TradeRepository tradeRepository;
-	
 
 	@WithMockUser(value = "test")
 	@Test
@@ -70,7 +70,13 @@ public class TradeTests {
 		Assert.assertTrue(trade.getTrader().equals("trader"));
 		Assert.assertTrue(trade.getType().equals("type"));
 
-		// Find
+		// Find By id
+
+		Integer idL = 1;
+		Optional<Trade> optbid = tradeRepository.findById(idL);
+		Assert.assertTrue(optbid.isPresent());
+		
+		// Find All
 		List<Trade> listResult = tradeRepository.findAll();
 		Assert.assertTrue(listResult.size() > 0);
 

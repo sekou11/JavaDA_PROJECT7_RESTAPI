@@ -56,6 +56,8 @@ public class Trade {
 	private String sourceListId; 
 	private String side;
 	
+	
+	
 	public Trade(String account, String type) {
 		super();
 		this.account = account;
@@ -74,6 +76,18 @@ public class Trade {
 		this.type = type;
 		this.buyQuantity = buyQuantity;
 	}
+
+
+
+
+
+	public Trade(Integer tradeId, @NotBlank(message = "account is mandatory") String account,
+			@NotBlank(message = "type is mandatory") String type) {
+		super();
+		this.tradeId = tradeId;
+		this.account = account;
+		this.type = type;
+	}  
 	
 	
 	

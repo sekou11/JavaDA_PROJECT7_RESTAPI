@@ -1,5 +1,6 @@
 package com.nnk.springboot.DaoTest;
 
+import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.repositories.RatingRepository;
 import org.junit.Assert;
@@ -41,10 +42,10 @@ public class RatingTests {
 
 		// Delete
 
-//		Integer id = rating.getId();
-//		ratingRepository.delete(rating);
-//		Optional<Rating> ratingList = ratingRepository.findById(id);
-//		Assert.assertFalse(ratingList.isPresent());
+		Integer id = rating.getId();
+		ratingRepository.delete(rating);
+		Optional<Rating> ratingList = ratingRepository.findById(id);
+		Assert.assertFalse(ratingList.isPresent());
 
 	}
 }

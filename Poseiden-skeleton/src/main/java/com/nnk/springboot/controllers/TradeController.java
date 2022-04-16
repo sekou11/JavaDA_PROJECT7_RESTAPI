@@ -37,7 +37,7 @@ public class TradeController {
 	}
 
 	@GetMapping("/trade/add")
-	public String addUser(Trade trade) {
+	public String addTrade(Trade trade) {
 		LOGGER.info("Add a Trade");
 		return "trade/add";
 	}

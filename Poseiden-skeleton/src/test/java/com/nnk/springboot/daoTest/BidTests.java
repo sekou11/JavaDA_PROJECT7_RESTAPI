@@ -1,17 +1,17 @@
 package com.nnk.springboot.DaoTest;
 
-import com.nnk.springboot.domain.BidList;
-import com.nnk.springboot.repositories.BidListRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-import java.util.Optional;
+import com.nnk.springboot.domain.BidList;
+import com.nnk.springboot.repositories.BidListRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,7 +20,6 @@ public class BidTests {
 	@Autowired
 	private BidListRepository bidListRepository;
 
-	@WithMockUser(value = "test")
 	@Test
 	public void bidListTest() {
 		BidList bid = new BidList("Account Test", "Type Test", 10d);
@@ -44,18 +43,24 @@ public class BidTests {
 		Assert.assertEquals(bid.getAccount(), "update account");
 		Assert.assertEquals(bid.getAskQuantity(), 10d, 10d);
 		Assert.assertEquals(bid.getType(), "type");
-		// Find
+
+		// Find By id
+
+		Integer idL = 1;
+		Optional<BidList> optbid = bidListRepository.findById(idL);
+		Assert.assertTrue(optbid.isPresent());
+
+		// Find All
 
 		List<BidList> listResult = bidListRepository.findAll();
 		Assert.assertTrue(listResult.size() > 0);
 
-		// Delete
-
+//		// Delete
+//
 //		Integer id = bid.getBidListId();
 //		bidListRepository.delete(bid);
 //		Optional<BidList> bidList = bidListRepository.findById(id);
 //		Assert.assertFalse(bidList.isPresent());
 
 	}
-
 }

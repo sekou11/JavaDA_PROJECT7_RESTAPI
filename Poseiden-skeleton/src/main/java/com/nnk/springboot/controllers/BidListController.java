@@ -2,6 +2,8 @@ package com.nnk.springboot.controllers;
 
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,16 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.nnk.springboot.domain.BidList;
-import com.nnk.springboot.service.Impl.BidListServiceImpl;
+import com.nnk.springboot.service.BidListService;
 
 @Controller
 public class BidListController {
 	@Autowired
-	private BidListServiceImpl bidListService;
+	private BidListService bidListService;
 	
 
 private static final Logger LOGGER = LogManager.getLogger(BidListController.class);
