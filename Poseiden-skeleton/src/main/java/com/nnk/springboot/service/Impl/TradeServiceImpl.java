@@ -27,9 +27,9 @@ public class TradeServiceImpl implements TradeService {
 	}
 
 	@Override
-	public void save(Trade trade) {
+	public Trade save(Trade trade) {
 		 LOGGER.debug("A trade save" +trade);
-		tradeRepository.save(trade);
+		return tradeRepository.save(trade);
 		
 	}
 

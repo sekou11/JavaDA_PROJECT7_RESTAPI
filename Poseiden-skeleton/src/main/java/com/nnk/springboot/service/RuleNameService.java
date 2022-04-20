@@ -9,7 +9,7 @@ public interface RuleNameService {
 
 	public List<RuleName> findAll();
 
-	public void save(RuleName ruleName);
+	public RuleName save(RuleName ruleName);
 
 	public Optional<RuleName> findById(Integer id);
 

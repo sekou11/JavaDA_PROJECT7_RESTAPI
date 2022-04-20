@@ -72,4 +72,14 @@ public class BidList {
 		this.bidQuantity = bidQuantity;
 	}
 
+	public BidList(Integer bidListId, @NotBlank(message = "Account is mandatory") String account,
+			@NotBlank(message = "Type is mandatory") String type, @NotNull Double bidQuantity) {
+		super();
+		this.bidListId = bidListId;
+		this.account = account;
+		this.type = type;
+		this.bidQuantity = bidQuantity;
+	}
+	
+
 }

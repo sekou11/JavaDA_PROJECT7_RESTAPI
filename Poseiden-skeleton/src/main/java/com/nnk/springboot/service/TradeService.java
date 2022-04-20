@@ -9,7 +9,7 @@ public interface TradeService {
 
 	public List<Trade> findAll();
 
-	public void save( Trade trade);
+	public Trade save( Trade trade);
 
 	public Optional<Trade> findbyId(Integer id);
 

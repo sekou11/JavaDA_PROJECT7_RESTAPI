@@ -77,7 +77,7 @@ private static final Logger LOGGER = LogManager.getLogger(BidListController.clas
 	 @GetMapping("/bidList/delete/{id}")
 	    public String deleteUser(@PathVariable("id") Integer id, Model model) {
 	       BidList bidList = bidListService.findbyId(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-	        bidListService.delete(bidList);
+	        bidListService.delete(id);
 	        model.addAttribute("users", bidListService.findAll());
 	        LOGGER.info("delete  a BidList");
 	        return "redirect:/bidList/list";

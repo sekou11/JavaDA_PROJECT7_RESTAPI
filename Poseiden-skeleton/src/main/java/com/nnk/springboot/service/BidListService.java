@@ -9,11 +9,11 @@ public interface BidListService {
 
 	public List<BidList> findAll();
 
-	public void save( BidList bid);
+	public BidList save( BidList bid);
 
 	public Optional<BidList> findbyId(Integer id);
 
-	public void delete(BidList bidList);
+	public void delete(int i);
 	
 	public BidList updateBidList(Integer id,BidList bid);
 	

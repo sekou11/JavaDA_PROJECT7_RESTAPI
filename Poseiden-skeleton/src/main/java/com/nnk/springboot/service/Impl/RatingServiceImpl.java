@@ -23,11 +23,11 @@ public class RatingServiceImpl implements RatingService {
 		LOGGER.debug("All a Curve List");
 		return ratingRepository.findAll();
 	}
-
+ 
 	@Override
-	public void save(Rating rating ) {
+	public Rating save(Rating rating ) {
 		LOGGER.debug("Save a Rating"+rating);
-		ratingRepository.save(rating);
+		return ratingRepository.save(rating);
 		
 	}
 

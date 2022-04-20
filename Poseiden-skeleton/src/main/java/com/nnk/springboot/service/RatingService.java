@@ -9,7 +9,7 @@ public interface RatingService {
 
 	public List<Rating> findAll();
 
-	public void save( Rating rating );
+	public Rating save( Rating  rating );
 
 	public Optional<Rating> findbyId(Integer id);
 

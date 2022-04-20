@@ -8,13 +8,14 @@ import javax.validation.Valid;
 import com.nnk.springboot.domain.CurvePoint;
 
 public interface CurvePointService {
+	
 	public List<CurvePoint>AllCurve();
 
-	public void save(@Valid CurvePoint curvePoint);
+	public CurvePoint save(@Valid CurvePoint curvePoint);
 
 	public Optional<CurvePoint> findById(Integer id);
 
-	public void delete(CurvePoint curvePoint );
+	public void delete(int id );
 
 	public CurvePoint updateCurvePoint(Integer id2, CurvePoint curvePoint);
 

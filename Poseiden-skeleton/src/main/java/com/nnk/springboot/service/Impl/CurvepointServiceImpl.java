@@ -24,12 +24,12 @@ public class CurvepointServiceImpl implements CurvePointService {
 	public List<CurvePoint> AllCurve() {
 		LOGGER.debug("All Curve");
 		return curvepointRepository.findAll();
-		 
+		   
 	}
 	@Override
-	public void save(@Valid CurvePoint curvePoint) {
+	public CurvePoint save(@Valid CurvePoint curvePoint) {
 		LOGGER.debug("Save a Curve");
-		curvepointRepository.save(curvePoint);
+		return curvepointRepository.save(curvePoint);
 		
 		
 	}
@@ -39,9 +39,9 @@ public class CurvepointServiceImpl implements CurvePointService {
 		return curvepointRepository.findById(id);
 	}
 	@Override
-	public void delete(CurvePoint curvePoint) {
-		LOGGER.debug("Delete a Curve"+ curvePoint);
-		curvepointRepository.delete(curvePoint);
+	public void delete(int id) {
+		LOGGER.debug("Delete a Curve"+ id);
+		curvepointRepository.deleteById(id);
 		
 	}
 	@Override

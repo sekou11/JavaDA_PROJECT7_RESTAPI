@@ -25,9 +25,9 @@ public class RuleNameServiceImpl implements RuleNameService {
 	}
 
 	@Override
-	public void save(RuleName ruleName) {
+	public RuleName save(RuleName ruleName) {
 		LOGGER.debug("Save a RuleName"+ruleName);
-		ruleNameRepository.save(ruleName);
+		return ruleNameRepository.save(ruleName);
 
 	}
 
