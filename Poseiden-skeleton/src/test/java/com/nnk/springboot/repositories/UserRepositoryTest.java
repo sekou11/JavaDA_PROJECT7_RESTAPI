@@ -22,7 +22,7 @@ class UserRepositoryTest {
 		userRepository.save(user);
 		Assert.assertNotNull(user.getId());
 		Assert.assertTrue(user.getUsername().equals("username"));
-		;
+		
 
 		// Update
 		Integer id = user.getId();

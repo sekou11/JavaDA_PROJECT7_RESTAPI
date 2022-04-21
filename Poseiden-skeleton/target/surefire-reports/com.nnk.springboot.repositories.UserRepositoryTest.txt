@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.repositories.UserRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.441 s <<< FAILURE! - in com.nnk.springboot.repositories.UserRepositoryTest
+bidListTest  Time elapsed: 0.003 s  <<< ERROR!
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.nnk.springboot.repositories.UserRepositoryTest.bidListTest(UserRepositoryTest.java:22)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.nnk.springboot.repositories.UserRepositoryTest.bidListTest(UserRepositoryTest.java:22)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicata du champ 'username' pour la clef 'UK_k8d0f2n7n88w1a16yhua64onx'
+	at com.nnk.springboot.repositories.UserRepositoryTest.bidListTest(UserRepositoryTest.java:22)
+

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.nnk.springboot.controllers.BidListControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 26.079 s <<< FAILURE! - in com.nnk.springboot.controllers.BidListControllerTest
+homeTest  Time elapsed: 0.225 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<302>
+	at com.nnk.springboot.controllers.BidListControllerTest.homeTest(BidListControllerTest.java:84)
+
