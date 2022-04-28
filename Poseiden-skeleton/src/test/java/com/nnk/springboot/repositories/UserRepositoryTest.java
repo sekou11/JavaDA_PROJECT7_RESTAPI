@@ -1,6 +1,7 @@
 package com.nnk.springboot.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class UserRepositoryTest {
 	private UserRepository userRepository;
 
 	@Test
-	void bidListTest() {
+	void userTest() {
 
 		User user = new User("username", "Azerty@1", "fullname");
 		// Save
@@ -35,10 +36,10 @@ class UserRepositoryTest {
 		List<User> listResult = userRepository.findAll();
 		Assert.assertTrue(listResult.size() > 0);
          //Delete
-//		Integer id2 = user.getId();
-//		userRepository.delete(user);
-//		Optional<User> userList = userRepository.findById(id2);
-//		Assert.assertFalse(userList.isPresent());
+		Integer id2 = user.getId();
+		userRepository.delete(user);
+		Optional<User> userList = userRepository.findById(id2);
+		Assert.assertFalse(userList.isPresent());
 	}
 
 }
