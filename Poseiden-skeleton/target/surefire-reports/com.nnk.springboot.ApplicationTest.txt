@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.ApplicationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 88.967 s - in com.nnk.springboot.ApplicationTest
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.633 s - in com.nnk.springboot.ApplicationTest
