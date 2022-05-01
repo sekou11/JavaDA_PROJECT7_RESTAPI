@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.repositories.CurvepointRepositoryTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s - in com.nnk.springboot.repositories.CurvepointRepositoryTest
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in com.nnk.springboot.repositories.CurvepointRepositoryTest
+>>>>>>> e39c90f7a5494de99081e02a55c3f7c1783abe14

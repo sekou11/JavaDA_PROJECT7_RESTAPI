@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Test set: com.nnk.springboot.repositories.BidListRepositoryTest
 -------------------------------------------------------------------------------
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.482 s - in com.nnk.springboot.repositories.BidListRepositoryTest
+=======
+<<<<<<< HEAD:Poseiden-skeleton/target/surefire-reports/com.nnk.springboot.repositories.UserRepositoryTest.txt
+Test set: com.nnk.springboot.repositories.UserRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.469 s - in com.nnk.springboot.repositories.UserRepositoryTest
+=======
+Test set: com.nnk.springboot.repositories.BidListRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.253 s - in com.nnk.springboot.repositories.BidListRepositoryTest
+>>>>>>> e39c90f7a5494de99081e02a55c3f7c1783abe14:Poseiden-skeleton/target/surefire-reports/com.nnk.springboot.repositories.BidListRepositoryTest.txt
+>>>>>>> e39c90f7a5494de99081e02a55c3f7c1783abe14
