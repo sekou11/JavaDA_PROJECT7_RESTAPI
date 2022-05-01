@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.nnk.springboot.domain.BidList;
+import com.nnk.springboot.domain.Rating;
 
 public interface BidListService {
 
@@ -13,9 +14,11 @@ public interface BidListService {
 
 	public Optional<BidList> findbyId(Integer id);
 
-	public void delete(int i);
+	public void delete(BidList bidList);
 	
-	public BidList updateBidList(Integer id,BidList bid);
+	
+
+	
 	
 	
 

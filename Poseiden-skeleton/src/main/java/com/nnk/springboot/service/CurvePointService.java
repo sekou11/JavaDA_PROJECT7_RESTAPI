@@ -15,9 +15,9 @@ public interface CurvePointService {
 
 	public Optional<CurvePoint> findById(Integer id);
 
-	public void delete(int id );
+	public void delete(CurvePoint curvePoint );
 
-	public CurvePoint updateCurvePoint(Integer id2, CurvePoint curvePoint);
+	
 
 
 }

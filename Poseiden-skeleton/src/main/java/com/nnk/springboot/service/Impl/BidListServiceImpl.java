@@ -25,7 +25,7 @@ public class BidListServiceImpl implements BidListService {
 	}
 
 	@Override
-	public BidList save(BidList bidList) {
+	public BidList save(BidList bidList) { 
 		LOGGER.debug("A bildList save" +bidList);
 		return bidListRepository.save(bidList);
 		
@@ -37,19 +37,17 @@ public class BidListServiceImpl implements BidListService {
 		return bidListRepository.findById(id);
 	}
 	
-	@Override
-	public BidList updateBidList(Integer id, BidList bid) {
-		LOGGER.debug("Update  a BidList By id" + id);
-		bid.setBidListId(id);
-		bidListRepository.save(bid);
-		return bid;
-	}
+	
 
 	@Override
-	public void delete(int id) {
-		 LOGGER.debug("delete a bidList By id" + id);
-		bidListRepository.deleteById(id);		
+	public void delete(BidList bidList) {
+		 LOGGER.debug("delete a bidList By bidList" + bidList);
+		bidListRepository.delete(bidList);		  
 	}
+
+	
+	
+	
 	
 
 

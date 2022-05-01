@@ -2,6 +2,8 @@ package com.nnk.springboot.ServiceTest;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -86,4 +88,15 @@ public class CurvePointServiceTests {
         // Assert the response
         Assertions.assertEquals(2, curvePoints.size(), "findAll should return 2 CurvePoints");
     }
+	
+	@Test
+    @DisplayName("Test delete CurvePoint Success")
+    void testDelete() {
+        // Setup our mock repository
+		CurvePoint cp = new CurvePoint();
+		service.delete(cp);
+		service.delete(cp);
+		
+		verify(repository ,times(2)).delete(cp);
+}
 }

@@ -2,6 +2,8 @@ package com.nnk.springboot.ServiceTest;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.repositories.TradeRepository;
 import com.nnk.springboot.service.TradeService;
@@ -86,4 +89,15 @@ public class TradeServiceTests {
         // Assert the response
         Assertions.assertEquals(2, trades.size(), "findAll should return 2 trades");
     }
+	
+	@Test
+    @DisplayName("Test delete trade Success")
+    void testDelete() {
+        // Setup our mock repository
+		Trade trade = new Trade();
+		service.delete(trade);
+		service.delete(trade);
+		
+		verify(repository ,times(2)).delete(trade);;
+}
 }

@@ -15,7 +15,7 @@ public interface RuleNameService {
 
 	public void delete(RuleName ruleName);
 
-	public RuleName updateRuleName(Integer id, RuleName rule);
+	
 	
 	
 

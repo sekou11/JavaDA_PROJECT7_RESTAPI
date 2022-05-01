@@ -28,7 +28,7 @@ class BidListRepositoryTest {
 		Assert.assertNull(bid.getAskQuantity());
 		Assert.assertNull(bid.getCreationDate());
 		
-		// Update
+		// Update 
 				bid.setBidQuantity(20d);
 				bid.setAccount("update account");
 				bid.setAskQuantity(10d);
@@ -45,11 +45,10 @@ class BidListRepositoryTest {
 				
 				
 				// Delete
-
-//				Integer id = bid.getBidListId();
-//				bidListRepository.delete(bid);
-//				Optional<BidList> bidList = bidListRepository.findById(id);
-//				Assert.assertFalse(bidList.isPresent());
+				Integer id = bid.getBidListId();
+				bidListRepository.delete(bid);
+				Optional<BidList> bidList = bidListRepository.findById(id);
+				Assert.assertFalse(bidList.isPresent());
 
 	}
 

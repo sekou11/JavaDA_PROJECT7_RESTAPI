@@ -90,5 +90,5 @@ public class RatingController {
 		model.addAttribute("rating", ratingService.findAll());
 		LOGGER.info("Delete a Rating ");
 		return "redirect:/rating/list";
-	}
+	}  
 }

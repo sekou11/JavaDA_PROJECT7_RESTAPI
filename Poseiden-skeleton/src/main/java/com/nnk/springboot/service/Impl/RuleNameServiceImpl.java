@@ -44,12 +44,6 @@ public class RuleNameServiceImpl implements RuleNameService {
 
 	}
 
-	@Override
-	public RuleName updateRuleName(Integer id, RuleName rule) {
-		LOGGER.debug("Update a RuleName	" +rule);
-		rule.setId(id);
-		ruleNameRepository.save(rule);
-		return rule;
-	}
+	
 
 }

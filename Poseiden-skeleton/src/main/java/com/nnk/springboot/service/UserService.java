@@ -14,6 +14,6 @@ public interface UserService {
 	public Optional<User> findbyId(Integer id);
 
 	public void delete(User User);
-	public User updateUser(Integer id,User user);
+	
 
 }

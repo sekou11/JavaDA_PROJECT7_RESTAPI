@@ -86,7 +86,7 @@ private static final Logger LOGGER = LogManager.getLogger(CurveController.class)
 		// TODO: Find Curve by Id and delete the Curve, return to Curve list
 		CurvePoint curvePoint = curvePointService.findById(id)
 				.orElseThrow(()-> new IllegalArgumentException("invalid CurvePoint id :" + id));
-		  curvePointService.delete(id);
+		  curvePointService.delete(curvePoint);
 		  model.addAttribute("curvePoints", curvePointService.AllCurve());
 		  LOGGER.info("Delte a BidList ");
 		return "redirect:/curvePoint/list";

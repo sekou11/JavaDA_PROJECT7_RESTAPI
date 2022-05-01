@@ -69,9 +69,9 @@ public class TradeTests {
 		Assert.assertTrue(listResult.size() > 0);
 
 		// Delete
-//		Integer id = trade.getTradeId();
-//		tradeRepository.delete(trade);
-//		Optional<Trade> tradeList = tradeRepository.findById(id);
-//		Assert.assertFalse(tradeList.isPresent());
+		Integer id = trade.getTradeId();
+		tradeRepository.delete(trade);
+		Optional<Trade> tradeList = tradeRepository.findById(id);
+		Assert.assertFalse(tradeList.isPresent());
 	}
 }

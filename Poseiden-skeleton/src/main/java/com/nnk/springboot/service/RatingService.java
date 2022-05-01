@@ -15,6 +15,6 @@ public interface RatingService {
 
 	public void delete(Rating rating);
 
-	public Rating updateRating(Integer id, Rating rating);
+	
 
 }

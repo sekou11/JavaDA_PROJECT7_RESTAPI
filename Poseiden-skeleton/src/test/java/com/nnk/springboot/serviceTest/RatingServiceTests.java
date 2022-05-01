@@ -2,6 +2,8 @@ package com.nnk.springboot.ServiceTest;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -71,7 +73,7 @@ public class RatingServiceTests {
         // Assert the response
         Assertions.assertFalse(returnedRating .isPresent(), "Rating should not be found");
     }
-	
+	 
 	@Test
     @DisplayName("Test findAll")
     void testFindAll() {
@@ -86,4 +88,15 @@ public class RatingServiceTests {
         // Assert the response
         Assertions.assertEquals(2, ratings.size(), "findAll should return 2 rating");
     }
+	
+	@Test
+    @DisplayName("Test delete Rating Success")
+    void testDelete() {
+        // Setup our mock repository
+		Rating r = new Rating();
+		service.delete(r);
+		service.delete(r);
+		
+		verify(repository ,times(2)).delete(r);;
+}
 }

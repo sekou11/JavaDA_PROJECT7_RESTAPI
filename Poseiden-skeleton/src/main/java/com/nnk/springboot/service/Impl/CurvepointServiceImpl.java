@@ -39,17 +39,11 @@ public class CurvepointServiceImpl implements CurvePointService {
 		return curvepointRepository.findById(id);
 	}
 	@Override
-	public void delete(int id) {
-		LOGGER.debug("Delete a Curve"+ id);
-		curvepointRepository.deleteById(id);
+	public void delete(CurvePoint curvePoint) {
+		LOGGER.debug("Delete a Curve"+ curvePoint);
+		curvepointRepository.delete(curvePoint);
 		
 	}
-	@Override
-	public CurvePoint updateCurvePoint(Integer id2, CurvePoint curvePoint) {
-		LOGGER.debug("Delete a CurvePoint" +curvePoint);
-       curvePoint.setId(id2);
-       curvepointRepository.save(curvePoint);
-		return curvePoint;
-	}
+	
 
 }

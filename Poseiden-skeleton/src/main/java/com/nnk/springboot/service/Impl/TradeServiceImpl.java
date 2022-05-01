@@ -46,16 +46,9 @@ public class TradeServiceImpl implements TradeService {
 		
 	}
 
-	@Override
+
 	
-	public Trade updateTrade(Integer id, Trade trade) {
-		 LOGGER.debug("Update a Trade by id" +trade);
-		trade.setTradeId(id);
-		tradeRepository.save(trade);
-		return trade;
-		
-		
-	}  
+
 
 
 
