@@ -8,6 +8,7 @@ com\nnk\springboot\repositories\BidListRepositoryTest.class
 com\nnk\springboot\repositories\TradeTests.class
 com\nnk\springboot\repositories\RuleTests.class
 com\nnk\springboot\ServiceTest\BidServiceTests.class
+com\nnk\springboot\controllers\BidListControllerTest.class
 com\nnk\springboot\repositories\RatingTests.class
 com\nnk\springboot\repositories\CurvepointRepositoryTest.class
 com\nnk\springboot\ServiceTest\UserServiceTests.class

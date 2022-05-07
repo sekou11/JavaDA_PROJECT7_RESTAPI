@@ -2,10 +2,7 @@ C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\t
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\ServiceTest\RuleServiceTests.java
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\repositories\BidListRepositoryTest.java
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\repositories\CurvepointRepositoryTest.java
-<<<<<<< HEAD
-=======
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\BidListControllerTest.java
->>>>>>> e39c90f7a5494de99081e02a55c3f7c1783abe14
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\repositories\TradeTests.java
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\ServiceTest\CurvePointServiceTests.java
 C:\Users\Gonan\eclipse-workspace\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\ApplicationTest.java

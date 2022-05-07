@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.repositories.RuleTests
 -------------------------------------------------------------------------------
-<<<<<<< HEAD:Poseiden-skeleton/target/surefire-reports/com.nnk.springboot.repositories.RuleTests.txt
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in com.nnk.springboot.repositories.RuleTests
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.485 s - in com.nnk.springboot.repositories.RuleTests
->>>>>>> e39c90f7a5494de99081e02a55c3f7c1783abe14:Poseiden-skeleton/target/surefire-reports/com.nnk.springboot.DaoTest.BidTests.txt
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in com.nnk.springboot.repositories.RuleTests

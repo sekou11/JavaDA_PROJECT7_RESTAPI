@@ -1,24 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.ServiceTest.CurvePointServiceTests
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.659 s - in com.nnk.springboot.ServiceTest.CurvePointServiceTests
-=======
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 8.203 s <<< FAILURE! - in com.nnk.springboot.ServiceTest.CurvePointServiceTests
-testFindAll  Time elapsed: 0 s  <<< ERROR!
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.nnk.springboot.ServiceTest.CurvePointServiceTests': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-
-testSave  Time elapsed: 0 s  <<< ERROR!
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.nnk.springboot.ServiceTest.CurvePointServiceTests': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-
-testFindById  Time elapsed: 0.001 s  <<< ERROR!
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.nnk.springboot.ServiceTest.CurvePointServiceTests': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-
-testFindByIdNotFound  Time elapsed: 0.001 s  <<< ERROR!
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.nnk.springboot.ServiceTest.CurvePointServiceTests': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.nnk.springboot.service.CurvePointService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-
->>>>>>> e39c90f7a5494de99081e02a55c3f7c1783abe14
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.993 s - in com.nnk.springboot.ServiceTest.CurvePointServiceTests
