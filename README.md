@@ -2,7 +2,7 @@
 spring Boot
 Tecknical
 
-1Framework: Spring Boot v2.2.6
+1 Framework: Spring Boot v2.2.6
 
 2 Java 11
 
@@ -10,6 +10,35 @@ Tecknical
 
 4 Bootstrap v.5.1.3
 
+5 Maven 3.6.2
+
+6 Mysql 8.0.17
+
+Installing
+
+A step by step series of examples that tell you how to get a development env running:
+
+1.Install Java:
+
+https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html
+
+2.Install Maven:
+
+https://maven.apache.org/install.html
+
+3.Install MySql:
+
+https://dev.mysql.com/downloads/mysql/
+
+After downloading the mysql 8 installer and installing it, you will be asked to configure the password for the default root account. This code uses the default root account to connect and the password can be set as rootroot. 
+And :
+ -create  database demo_p7db;
+ - use demo_p7db;
+Running App
+
+Post installation of MySQL, Java and Maven, you have to :
+- fork this repostory (https://github.com/OpenClassrooms-Student-Center/JavaDA_PROJECT7_RESTAPI) 
+- Clone in your terminal : 
 Implement a future
 
 1 Create mapping domain class and place in package com.nnk.springboot.domain 
