@@ -34,11 +34,17 @@ After downloading the mysql 8 installer and installing it, you will be asked to 
 And :
  -create  database demo_p7db;
  - use demo_p7db;
+
+
 Running App
 
 Post installation of MySQL, Java and Maven, you have to :
+
 - fork this repostory (https://github.com/OpenClassrooms-Student-Center/JavaDA_PROJECT7_RESTAPI) 
-- Clone in your terminal : 
+- Clone the project in your terminal : https://github.com/sekou11/JavaDA_PROJECT7_RESTAPI.git
+
+
+
 Implement a future
 
 1 Create mapping domain class and place in package com.nnk.springboot.domain 
@@ -57,3 +63,9 @@ Security
 
 1 Create user service to load user from database and place in package com.nnk.springboot.services
 2 Add configuration class and place in package com.nnk.springboot.security
+
+Running App
+
+After some modifications of project we can run this app with maven in command line:
+- mvn clean package for generate a classes in target
+- mvn spring-boot:run for run our application
