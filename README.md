@@ -30,7 +30,9 @@ https://maven.apache.org/install.html
 
 https://dev.mysql.com/downloads/mysql/
 
-After downloading the mysql 8 installer and installing it, you will be asked to configure the password for the default root account. This code uses the default root account to connect and the password can be set as rootroot. 
+After downloading the mysql 8 installer and installing it, you will be asked to configure the password for the default root account.
+
+This code uses the default root account to connect and the password can be set as rootroot. 
 
 
 And :
