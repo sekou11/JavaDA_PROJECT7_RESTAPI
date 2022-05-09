@@ -34,9 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-		.antMatchers("/" ,"/webjars/**","/user/**").permitAll()
-		.antMatchers("/admin/**").hasAuthority("ADMIN")
-		.antMatchers("/user/**").hasAnyAuthority("ADMIN", "USER", "ROLE_USER")
+		.antMatchers("/" ,"/webjars/**","/user/**").permitAll()  
+		//.antMatchers("/admin/**").hasAuthority("ADMIN")
+		//.antMatchers("/user/**").hasAnyAuthority("ADMIN", "USER", "ROLE_USER")
 		.anyRequest().authenticated() // All request have to be authenticate														// authenticated
 				.and().formLogin() // UserName_Password session Access
 				.defaultSuccessUrl("/bidList/list").and().logout() // logout

@@ -1,4 +1,4 @@
-package com.nnk.springboot.ServiceTest;
+package com.nnk.springboot.serviceTest;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
