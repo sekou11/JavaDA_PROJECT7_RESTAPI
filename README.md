@@ -1,18 +1,15 @@
 # JavaDA_PROJECT7_RESTAPI
-spring Boot
+
+
 Tecknical
 
-1 Framework: Spring Boot v2.2.6
 
-2 Java 11
 
-3 Thymeleaf
+1- Java 11
 
-4 Bootstrap v.5.1.3
+2- Maven 3.6.2
 
-5 Maven 3.6.2
-
-6 Mysql 8.0.17
+3- Mysql 8.0.17
 
 Installing
 
@@ -35,9 +32,7 @@ After downloading the mysql 8 installer and installing it, you will be asked to 
 This code uses the default root account to connect and the password can be set as rootroot. 
 
 
-And :
- -create  database demo_p7db;
- - use demo_p7db;
+
 
 
 Running App
@@ -49,27 +44,14 @@ Post installation of MySQL, Java and Maven, you have to :
 
 
 
-Implement a future
-
-1 Create mapping domain class and place in package com.nnk.springboot.domain 
-
-2 Create repository class and place in package com.nnk.springboot.repositories
-
-3 Create controller class and place in package com.nnk.springboot.controllers
-
-4 Create view files and place in src/main/resource/templates
-
-Write Unit Test
-
-1 Create unit test and place in package com.nnk.springboot in folder test > java
-
-Security
-
-1 Create user service to load user from database and place in package com.nnk.springboot.services
-2 Add configuration class and place in package com.nnk.springboot.security
 
 Running App
 
 After some modifications of project we can run this app with maven in command line:
-- mvn clean package for generate a classes in target
-- mvn spring-boot:run for run our application
+- mvn clean package : for generate a classes in target
+
+- mvn spring-boot:run : for run our application
+
+Deploy App
+ move in directory target :cd target
+ deploy it : java -jar spring-boot-skeleton-0.0.1-SNAPSHOT.jar
