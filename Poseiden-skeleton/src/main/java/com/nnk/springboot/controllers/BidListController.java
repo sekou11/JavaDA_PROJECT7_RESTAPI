@@ -66,12 +66,14 @@ private static final Logger LOGGER = LogManager.getLogger(BidListController.clas
 		if (result.hasErrors()) {
 			return "bidList/update";
 		}
-		bidList.setBidListId(id);
-		bidListService.save(bidList);
+		bidListService.updateBidList(id, bidList);
+	
 		model.addAttribute("bidList", bidListService.findAll());
 		LOGGER.info(" BidList updated and save");
 		return "redirect:/bidList/list";
 	}
+
+	
 	
 	
 	 @GetMapping("/bidList/delete/{id}")

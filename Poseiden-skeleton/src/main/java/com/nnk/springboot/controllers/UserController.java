@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.service.UserService;
 
+
 @Controller
 public class UserController {
     @Autowired
@@ -79,17 +80,30 @@ public class UserController {
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                              BindingResult result, Model model) {
-        if (result.hasErrors()) {
-        	   LOGGER.info("Error in a User Forms");
-            return "user/update";
-        }
-
-       
-        user.setId(id);
-        userService.save(user);
-        model.addAttribute("users", userService.findAll());
-        LOGGER.info("Update and Save a User");
-        return "redirect:/user/list";
+    	
+    	// TODO: check required fields, if valid call service to update User and
+    			// return User list
+    	User u =userService.findByUsername(user.getUsername());
+    	String name;
+    			if (result.hasErrors() && u != null ) {
+    				
+    				model.addAttribute("name", true);
+    				user.setId(id);
+    				return "user/update";
+    			}
+    			
+    			
+    		
+    			if (u == null) {
+    				userService.save(user);
+        			model.addAttribute("user", userService.findAll());
+        			LOGGER.info("Update and Save User ");
+				}
+    			
+    			
+    			
+    		
+    			return "redirect:/user/list";
     }
 
     @GetMapping("/user/delete/{id}")

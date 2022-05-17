@@ -31,33 +31,12 @@ public class UserServiceImpl implements UserService   {
 	@Override
 	public User save(User user) {
 		LOGGER.debug("Save a User" +user);
-		if(user.getId()  == null) 
-	    {
-			user.setPassword(encoder.encode(user.getPassword()));
-	      user = userRepository.save(user);
-	       
-	      return user;
-	    } 
-	    else
-	    {
-	      Optional<User> userCreated = userRepository.findById(user.getId());
-	       
-	      if(userCreated.isPresent()) 
-	      {
-	        User newuser = userCreated.get();
-	        newuser.setFullname(user.getFullname());
-	        newuser.setUsername(user.getUsername());
-	        newuser.setPassword(encoder.encode( user.getPassword() )); 
-	 
-	        newuser = userRepository.save(newuser);
-	         
-	        return newuser;
-	      } else {
-	        user = userRepository.save(user);
-	         
-	        return user;
-	      }
-	    }
+		user.setFullname(user.getFullname());
+		user.setUsername(user.getUsername());
+		user.setPassword(encoder.encode(user.getPassword()));
+		
+		return userRepository.save(user);
+		
 	  } 
 	   
 		
@@ -82,13 +61,16 @@ public class UserServiceImpl implements UserService   {
 		return userRepository.findByUsername(userName);
 	}
 
-//	@Override
-//	public User updateUser(Integer id, User user) {
-//		LOGGER.debug("Update a User" +user);
-//		user.setId(id);
-//		userRepository.save(user);
-//		return user;
-//	}
+	@Override
+	public User updateUser(Integer id, User user) {
+		LOGGER.debug("Update a User" +user);
+		//user.setId(id);
+		user.setFullname(user.getFullname());
+		user.setUsername(user.getUsername());
+		user.setPassword(encoder.encode(user.getPassword()));
+		userRepository.save(user);
+		return user;
+	}
 
 	
 

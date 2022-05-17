@@ -3,6 +3,8 @@ package com.nnk.springboot.service.Impl;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,13 @@ public class BidListServiceImpl implements BidListService {
 		 LOGGER.debug("delete a bidList By bidList" + bidList);
 		bidListRepository.delete(bidList);		  
 	}
+     @Override
+	public void updateBidList(Integer id, BidList bidList) {
+		bidList.setBidListId(id);
+		bidListRepository.save(bidList);
+	}
+
+	
 
 	
 	
