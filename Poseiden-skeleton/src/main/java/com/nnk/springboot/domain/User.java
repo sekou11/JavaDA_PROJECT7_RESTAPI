@@ -2,8 +2,6 @@ package com.nnk.springboot.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,6 +18,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	
 	@NotBlank(message = "Username is mandatory")
 	@Column(name = "user_name", unique = true)
 	private String username;
@@ -29,11 +28,11 @@ public class User {
 
 	@NotBlank(message = "FullName is mandatory")
 	private String fullname;
+	
 
 	private String roles;
 
-//	@Enumerated(EnumType.STRING)
-//	private Provider provider;
+
 
 	public User() {
 		// TODO Auto-generated constructor stub

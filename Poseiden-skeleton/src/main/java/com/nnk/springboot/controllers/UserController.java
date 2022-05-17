@@ -5,7 +5,6 @@ import javax.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.service.UserService;
@@ -40,16 +40,28 @@ public class UserController {
     }
 
     @PostMapping("/user/validate")
-    public String validate(@Valid @ModelAttribute("user")User user, BindingResult result, Model model) {
-        if (!result.hasErrors()) {
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            user.setPassword(encoder.encode(user.getPassword()));
+    public String validate(@Valid @ModelAttribute("user")User user,
+    		BindingResult result, Model model ,RedirectAttributes redirAttrs) {
+    	
+    	String  signupError = null;
+    	
+    	User existsUser = userService.findByUsername(user.getUsername()) ; 
+    	 if (existsUser != null) {
+             signupError = "The UserName already exists";
+         }
+    	 
+         if (signupError == null) {
             userService.save(user);
-            model.addAttribute("users", userService.findAll());
-            LOGGER.info("Valide and Save User" );
+            redirAttrs.addFlashAttribute("message", "You've successfully saved .");
             return "redirect:/user/list";
-        }
-        return "user/add";
+         }
+
+         else {
+             model.addAttribute("signupError", true);
+         }
+
+         return "user/add";
+
         
 
       }
@@ -72,8 +84,7 @@ public class UserController {
             return "user/update";
         }
 
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.setPassword(encoder.encode(user.getPassword()));
+       
         user.setId(id);
         userService.save(user);
         model.addAttribute("users", userService.findAll());

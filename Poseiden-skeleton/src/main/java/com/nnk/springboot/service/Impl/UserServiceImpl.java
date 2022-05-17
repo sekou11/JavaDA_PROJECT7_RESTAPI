@@ -8,18 +8,17 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
 import com.nnk.springboot.service.UserService;
 @Service
-@Transactional
+
 public class UserServiceImpl implements UserService   {
 	@Autowired
 	private UserRepository userRepository;  
 	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	private BCryptPasswordEncoder encoder;
 	
 	private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl .class);
 
@@ -32,10 +31,38 @@ public class UserServiceImpl implements UserService   {
 	@Override
 	public User save(User user) {
 		LOGGER.debug("Save a User" +user);
-		//user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		return userRepository.save(user);
+		if(user.getId()  == null) 
+	    {
+			user.setPassword(encoder.encode(user.getPassword()));
+	      user = userRepository.save(user);
+	       
+	      return user;
+	    } 
+	    else
+	    {
+	      Optional<User> userCreated = userRepository.findById(user.getId());
+	       
+	      if(userCreated.isPresent()) 
+	      {
+	        User newuser = userCreated.get();
+	        newuser.setFullname(user.getFullname());
+	        newuser.setUsername(user.getUsername());
+	        newuser.setPassword(encoder.encode( user.getPassword() )); 
+	 
+	        newuser = userRepository.save(newuser);
+	         
+	        return newuser;
+	      } else {
+	        user = userRepository.save(user);
+	         
+	        return user;
+	      }
+	    }
+	  } 
+	   
 		
-	}
+		
+	
 
 	@Override
 	public Optional<User> findbyId(Integer id) {
@@ -47,6 +74,12 @@ public class UserServiceImpl implements UserService   {
 	public void delete(User user) {
 		LOGGER.debug("Delete a User" +user);
 		userRepository.delete(user);		
+	}
+
+	@Override
+	public User findByUsername(String userName) {
+		// TODO Auto-generated method stub
+		return userRepository.findByUsername(userName);
 	}
 
 //	@Override
